@@ -1,0 +1,7 @@
+<launch>
+  <node pkg="imu_serial_node" type="imu_serial_node" name="mpu6050_node" required="true">
+    <param name="port" value="/dev/ttyUSB0"/>
+    <param name="imu_frame_id" value="imu_base"/>
+  </node>
+  <node pkg="tf" type="static_transform_publisher" name="imu_static_tf" args="0 0 0 0 0 0 1 base_footprint imu_base 100" />
+</launch>
